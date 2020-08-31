@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="anchorid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <MenuBar layoutY="2.0" style="-fx-background-color: #f77f00;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+              <MenuItem mnemonicParsing="false" onAction="#Save" text="Save" />
             </items>
           </Menu>
         </menus>

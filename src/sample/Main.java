@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
+    private static Stage primaryStage; // **Declare static Stage**
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -18,6 +20,11 @@ public class Main extends Application {
         primaryStage.setTitle("NotePaDD");
         primaryStage.setScene(new Scene(root, screensize.getWidth() /2, screensize.getHeight() /2 ));
         primaryStage.show();
+
+    }
+
+    static public Stage getPrimaryStage() {
+        return primaryStage;
     }
 
 

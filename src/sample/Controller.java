@@ -1,6 +1,10 @@
 package sample;
 
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.File;
@@ -9,32 +13,24 @@ import java.io.IOException;
 
 public class Controller {
     public TextArea maintextarea = new TextArea();
-
-    JFileChooser filechooser = new JFileChooser();
+    FileChooser fc = new FileChooser();
     FileWriter fw;
-
     String dir = "";
 
-    public void save() throws IOException {
-       try{
+    public void Save() throws IOException {
+        try{
+            fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Files","*.*"));
+            dir = fc.showSaveDialog(Main.getPrimaryStage()).getAbsoluteFile().getAbsolutePath() + ".txt";
+            System.out.println(dir);
 
-            JFrame frame = new JFrame();
-            frame.setAlwaysOnTop(true);
-            filechooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            int returnVal = filechooser.showOpenDialog(frame);
-
-            if (returnVal== JFileChooser.APPROVE_OPTION){
-                dir = filechooser.getSelectedFile().getAbsolutePath() + ".txt";
-                System.out.println(dir);
-            }
-           fw = new FileWriter(new File(dir));
-           fw.write(maintextarea.getText());
+            fw = new FileWriter(new File(dir));
+            fw.write(maintextarea.getText());
         }
-        catch (IOException e){
+        catch (NullPointerException e){
             e.printStackTrace();
         }
-       finally {
-           fw.close();
-       }
+        finally {
+            fw.close();
+        }
     }
 }
